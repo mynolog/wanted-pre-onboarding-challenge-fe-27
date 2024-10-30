@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import useForm from '../../hooks/useForm'
+import { useForm } from '../../hooks/useForm'
 import CommonInput from '../../components/common/input/CommonInput'
 import CommonButton from '../../components/common/button/CommonButton'
 import FormTitle from '../../components/common/title/FormTitle'
