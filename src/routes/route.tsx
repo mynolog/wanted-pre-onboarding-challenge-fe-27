@@ -1,4 +1,5 @@
 import SignUp from '../pages/signUp/SignUp'
+import Login from '../pages/login/Login'
 
 const route = [
   {
@@ -7,7 +8,7 @@ const route = [
   },
   {
     path: '/login',
-    element: <h1>login</h1>,
+    element: <Login />,
   },
   {
     path: '/create',
