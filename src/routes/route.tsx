@@ -1,3 +1,5 @@
+import SignUp from '../pages/signUp/SignUp'
+
 const route = [
   {
     path: '/',
@@ -9,7 +11,7 @@ const route = [
   },
   {
     path: '/create',
-    element: <div>create</div>,
+    element: <SignUp />,
   },
 ]
 export default route
