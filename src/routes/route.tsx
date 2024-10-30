@@ -3,11 +3,11 @@ import SignUp from '../pages/signUp/SignUp'
 const route = [
   {
     path: '/',
-    element: <div>home</div>,
+    element: <h1>home</h1>,
   },
   {
     path: '/login',
-    element: <div>login</div>,
+    element: <h1>login</h1>,
   },
   {
     path: '/create',

@@ -5,7 +5,7 @@ const PORT = '8080'
 
 const api = axios.create({
   baseURL: `${BASE_URL}:${PORT}`,
-  timeout: 2000,
+  timeout: 1500,
   headers: {
     'Content-Type': 'application/json',
   },

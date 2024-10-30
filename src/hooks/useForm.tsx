@@ -8,12 +8,12 @@ const useForm = <T extends Record<string, string | number | boolean>>(
   const [form, setForm] = useState<T>(initialValues)
 
   const handleFormChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setResponseError('')
     const { name, value } = e.target
     setForm((prevState) => ({
       ...prevState,
       [name]: value,
     }))
-    setResponseError('')
   }
 
   const resetForm = () => {

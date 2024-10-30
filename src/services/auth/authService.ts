@@ -26,6 +26,7 @@ export const signUpService = async ({ email, password }: SignUpRequest) => {
     }
   } catch (e) {
     if (isAxiosError(e) && e.response) {
+      console.error(e.response)
       throw new Error(e.response.data.details)
     }
   }
