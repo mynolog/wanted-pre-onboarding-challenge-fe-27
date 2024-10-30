@@ -1,7 +1,7 @@
 import type { ChangeEvent } from 'react'
 import { useState } from 'react'
 
-const useForm = <T extends Record<string, string | number | boolean>>(
+export const useForm = <T extends Record<string, string | number | boolean>>(
   initialValues: T,
   setResponseError: (error: string) => void,
 ) => {
@@ -21,5 +21,3 @@ const useForm = <T extends Record<string, string | number | boolean>>(
   }
   return { form, setForm, handleFormChange, resetForm }
 }
-
-export default useForm
