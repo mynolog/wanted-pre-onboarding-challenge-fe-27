@@ -1,13 +1,12 @@
 import { isAxiosError } from 'axios'
-// import { Store } from '../../store/slices/auth/authSlice'
 import api from '../api'
 
-interface SignUpRequest {
+interface AuthRequest {
   email: string
   password: string
 }
 
-interface SignUpResponse {
+interface AuthResponse {
   data: {
     message: string
     token: string
@@ -15,9 +14,29 @@ interface SignUpResponse {
   status: number
 }
 
-export const signUpService = async ({ email, password }: SignUpRequest) => {
+const SIGN_UP = 'users/create'
+const LOGIN = 'users/login'
+
+export const signUpService = async ({ email, password }: AuthRequest) => {
   try {
-    const response: SignUpResponse = await api.post('/users/create', {
+    const response: AuthResponse = await api.post(SIGN_UP, {
+      email,
+      password,
+    })
+    if (response.status === 200) {
+      return response.data
+    }
+  } catch (e) {
+    if (isAxiosError(e) && e.response) {
+      console.error(e.response)
+      throw new Error(e.response.data.details)
+    }
+  }
+}
+
+export const loginService = async ({ email, password }: AuthRequest) => {
+  try {
+    const response: AuthResponse = await api.post(LOGIN, {
       email,
       password,
     })
