@@ -3,7 +3,7 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost'
 const PORT = '8080'
 
-const axiosInstance = axios.create({
+const api = axios.create({
   baseURL: `${BASE_URL}:${PORT}`,
   timeout: 2000,
   headers: {
@@ -11,4 +11,4 @@ const axiosInstance = axios.create({
   },
 })
 
-export default axiosInstance
+export default api

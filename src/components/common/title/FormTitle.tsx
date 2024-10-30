@@ -1,5 +1,17 @@
-const PageTitle = () => {
-  return <div>PageTitle</div>
+interface FormTitle {
+  title: string
+  fontSize?: string
+  fontWeight?: 'normal' | 'semibold' | 'bold'
+  textColor?: string
 }
 
-export default PageTitle
+const FormTitle = ({
+  title,
+  fontSize = '1.25rem',
+  fontWeight = 'bold',
+  textColor = '#000',
+}: FormTitle) => {
+  return <span style={{ fontSize, fontWeight, color: textColor }}>{title}</span>
+}
+
+export default FormTitle
