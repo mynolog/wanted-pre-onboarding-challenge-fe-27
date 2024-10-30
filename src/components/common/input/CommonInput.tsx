@@ -18,7 +18,7 @@ const CommonInput = ({
   onChange,
 }: CommonInputProps) => {
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-2">
+    <div className="w-full flex flex-col items-center justify-center gap-3">
       <label htmlFor={name} className={'w-1/2 text-left font-semibold'}>
         {label}
       </label>

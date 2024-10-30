@@ -14,7 +14,7 @@ interface CommonButtonProps {
 
 const CommonButton = ({
   children,
-  bgColor = '#111827',
+  bgColor = '#111826',
   textColor = '#fff',
   fontSize = '1.25rem',
   width = '',

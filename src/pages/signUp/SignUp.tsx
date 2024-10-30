@@ -18,7 +18,6 @@ const SignUp = () => {
     },
     setResponseError,
   )
-
   const dispatch = useDispatch()
 
   const handleSignUpSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
