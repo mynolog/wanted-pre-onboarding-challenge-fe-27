@@ -26,8 +26,8 @@ const authSlice = createSlice({
       state.user = action.payload.user
       state.isLoggedIn = action.payload.isLoggedIn
     },
-    logoutAction(state) {
-      Object.assign(state, initialState)
+    logoutAction() {
+      return { ...initialState }
     },
   },
 })

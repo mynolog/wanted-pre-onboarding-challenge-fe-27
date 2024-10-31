@@ -1,5 +1,6 @@
 import PrivateRoute from './private/PrivateRoute'
 import PublicRoute from './public/PublicRoute'
+import Layout from '../components/layout/Layout'
 import Home from '../pages/home/Home'
 import EntryPage from '../pages/entryPage/EntryPage'
 import SignUp from '../pages/signUp/SignUp'
@@ -10,10 +11,14 @@ const route = [
     path: '/',
     element: (
       <PrivateRoute>
-        <Home />
+        <Layout />
       </PrivateRoute>
     ),
     children: [
+      {
+        path: '',
+        element: <Home />,
+      },
       {
         path: 'todos',
         element: <h1>getTodos</h1>,

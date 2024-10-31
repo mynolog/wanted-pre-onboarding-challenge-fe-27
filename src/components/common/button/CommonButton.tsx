@@ -36,7 +36,7 @@ const CommonButton = ({
         padding,
         cursor: disabled ? 'not-allowed' : 'pointer',
       }}
-      className="border-none outline-none rounded-xl flex items-center justify-center transition-transform transform scale-100 active:scale-95 mt-3"
+      className="border-none outline-none rounded-xl flex items-center justify-center transition-transform transform scale-100 active:scale-95"
       onClick={onClick}
       type={type}
       disabled={disabled}
