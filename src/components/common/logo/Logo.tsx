@@ -5,6 +5,7 @@ interface LogoProps {
   height?: string
   position?: 'absolute' | 'static' | 'relative'
   top?: string
+  onClick?: () => void
 }
 
 const Logo = ({
@@ -12,6 +13,7 @@ const Logo = ({
   height = '500px',
   position = 'absolute',
   top = '50px',
+  onClick,
 }: LogoProps) => {
   return (
     <div
@@ -23,6 +25,7 @@ const Logo = ({
         top,
         backgroundImage: `url(${logo})`,
       }}
+      onClick={onClick}
     />
   )
 }

@@ -87,7 +87,6 @@ const Login = () => {
             value={form.email}
             onChange={handleEmailChange}
           />
-          {validErrors.email && <span>{validErrors.email}</span>}
           <CommonInput
             name="password"
             label="비밀번호"
