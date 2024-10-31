@@ -1,8 +1,9 @@
-import type { MouseEvent } from 'react'
+import type { ChangeEvent, MouseEvent } from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm'
+import { useValidate } from '../../hooks/useValidate'
 import FormTitle from '../../components/common/title/FormTitle'
 import CommonInput from '../../components/common/input/CommonInput'
 import CommonButton from '../../components/common/button/CommonButton'
@@ -13,6 +14,7 @@ import Logo from '../../components/common/logo/Logo'
 
 const Login = () => {
   const [responseError, setResponseError] = useState('')
+  const { validErrors, validateEmail, validatePassword } = useValidate()
   const { form, handleFormChange, resetForm } = useForm(
     {
       email: '',
@@ -23,9 +25,18 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+  const isButtonDisabled =
+    !form.email ||
+    !form.password ||
+    !!validErrors.email ||
+    !!validErrors.password
+
   const handleLoginSubmit = async (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     const { email, password } = form
+    if (validErrors.email || validErrors.password) {
+      return
+    }
     const signUpForm = {
       email,
       password,
@@ -53,26 +64,43 @@ const Login = () => {
       resetForm()
     }
   }
+
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleFormChange(e)
+    validateEmail(e.target.value)
+  }
+
+  const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
+    handleFormChange(e)
+    validatePassword(e.target.value)
+  }
+
   return (
     <Background>
       <div className="w-full h-svh flex justify-center items-center">
-        <form className="w-6/12 h-4/5 flex flex-col items-center justify-center gap-3 rounded-2xl p-8 shadow-2xl bg-white z-50">
+        <form className="w-6/12 h-4/5 flex flex-col items-center justify-center gap-2 rounded-2xl p-8 shadow-2xl bg-white z-50">
           <Logo top="0" width="235px" height="235px" />
           <FormTitle title="로그인" />
           <CommonInput
             name="email"
             label="이메일"
             value={form.email}
-            onChange={handleFormChange}
+            onChange={handleEmailChange}
           />
+          {validErrors.email && <span>{validErrors.email}</span>}
           <CommonInput
             name="password"
             label="비밀번호"
             type="password"
             value={form.password}
-            onChange={handleFormChange}
+            onChange={handlePasswordChange}
           />
-          <CommonButton type="submit" width="65%" onClick={handleLoginSubmit}>
+          <CommonButton
+            type="submit"
+            width="65%"
+            onClick={handleLoginSubmit}
+            disabled={isButtonDisabled}
+          >
             로그인
           </CommonButton>
           {responseError && (

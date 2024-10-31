@@ -24,7 +24,7 @@ const CommonInput = ({
       </label>
       <input
         name={name}
-        className="mb-1 border border-slate-300 rounded-lg outline-none p-2 w-1/2 focus:border-amber-800 focus:ring-2 focus:ring-blue-500 transition duration-200"
+        className="mb-1 border border-slate-300 rounded-lg outline-none p-2 w-1/2 focus:border-amber-800 focus:ring-2 focus:ring-amber-500 transition duration-200"
         value={value}
         placeholder={placeholder}
         onChange={onChange}
