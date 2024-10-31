@@ -10,9 +10,9 @@ export const useTitle = () => {
   }
   useEffect(() => {
     if (userId) {
-      document.title = `${userId} • Todowing`
+      document.title = `${userId} • 원투 | WanTodo`
     } else {
-      document.title = 'Todowing'
+      document.title = '원투 | WanTodo'
     }
   }, [userId])
   return null

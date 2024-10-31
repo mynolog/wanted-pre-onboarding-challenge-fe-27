@@ -33,7 +33,7 @@ const CommonButton = ({
         height,
         padding,
       }}
-      className="border-none outline-none rounded-xl flex items-center justify-center transition-transform transform scale-100 active:scale-95"
+      className="border-none outline-none rounded-xl flex items-center justify-center transition-transform transform scale-100 active:scale-95 mt-3"
       onClick={onClick}
       type={type}
     >
