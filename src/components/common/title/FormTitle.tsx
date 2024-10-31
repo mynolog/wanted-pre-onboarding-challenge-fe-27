@@ -7,8 +7,8 @@ interface FormTitle {
 
 const FormTitle = ({
   title,
-  fontSize = '1.25rem',
-  fontWeight = 'semibold',
+  fontSize = '1.45rem',
+  fontWeight = 'bold',
   textColor = '#000',
 }: FormTitle) => {
   return <span style={{ fontSize, fontWeight, color: textColor }}>{title}</span>

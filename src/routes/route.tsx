@@ -1,5 +1,7 @@
 import PrivateRoute from './private/PrivateRoute'
 import PublicRoute from './public/PublicRoute'
+import Home from '../pages/home/Home'
+import EntryPage from '../pages/entryPage/EntryPage'
 import SignUp from '../pages/signUp/SignUp'
 import Login from '../pages/login/Login'
 
@@ -8,7 +10,7 @@ const route = [
     path: '/',
     element: (
       <PrivateRoute>
-        <h1>home</h1>
+        <Home />
       </PrivateRoute>
     ),
     children: [
@@ -23,6 +25,14 @@ const route = [
         ],
       },
     ],
+  },
+  {
+    path: '/entry',
+    element: (
+      <PublicRoute>
+        <EntryPage />
+      </PublicRoute>
+    ),
   },
   {
     path: '/login',

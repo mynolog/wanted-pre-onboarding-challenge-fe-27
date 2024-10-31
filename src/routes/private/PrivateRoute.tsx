@@ -10,7 +10,7 @@ interface PrivateRouteProps {
 const PrivateRoute = ({ children }: PrivateRouteProps) => {
   const { isLoggedIn } = useSelector((state: RootState) => state.auth)
 
-  return isLoggedIn ? children : <Navigate to={'/login'} replace />
+  return isLoggedIn ? children : <Navigate to={'/entry'} replace />
 }
 
 export default PrivateRoute
